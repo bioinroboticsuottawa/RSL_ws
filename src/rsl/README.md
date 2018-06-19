@@ -20,9 +20,9 @@ Libraries:
 	-Leap Motion SDK -- version 2.3.1
 
 For more details of the installation of ROS, leapSDK, and GRT library, please refer to:
-	-http://wiki.ros.org/turtlebot/Tutorials[here](http://wiki.ros.org/turtlebot/Tutorials)
-	-http://www.nickgillian.com/wiki/pmwiki.php/GRT/GestureRecognitionToolkit[here](http://www.nickgillian.com/wiki/pmwiki.php/GRT/GestureRecognitionToolkit)
-	-https://developer.leapmotion.com/documentation/v2/cpp/index.html[here](https://developer.leapmotion.com/documentation/v2/cpp/index.html)
+	-http://wiki.ros.org/turtlebot/Tutorials
+	-http://www.nickgillian.com/wiki/pmwiki.php/GRT/GestureRecognitionToolkit
+	-https://developer.leapmotion.com/documentation/v2/cpp/index.html
 
 # Source Code & Training Dataset
 
