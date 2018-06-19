@@ -1,9 +1,8 @@
 The robot hand catkin workspace
 ====================================================
 
-================================================================================================
 # Descriptions
-================================================================================================
+
 package 'rsl' -- Robotic Sign Language (rsl) recognition system using Leap Motion Controller
 This project is the software part of the CIVEMSA 2018 paper "Teaching a Robot Sign Language 
 using Vision-Based Hand Gesture Recognition", D. Zhi, T. E.A. Oliveira, V. P. Fonseca, E. Petriu
@@ -13,9 +12,8 @@ If you have any questions please contact dzhi047@uottawa.ca
 This project was developed under ROS framework and Gesture Recognition Toolkits (GRT) library 
 on Linux Ubuntu 14.04 LTE.
 
-================================================================================================
 # Installation
-================================================================================================
+
 Libraries:
 	-ROS -- indigo
 	-GRT
@@ -26,9 +24,8 @@ For more details of the installation of ROS, leapSDK, and GRT library, please re
 	-http://www.nickgillian.com/wiki/pmwiki.php/GRT/GestureRecognitionToolkit[here](http://www.nickgillian.com/wiki/pmwiki.php/GRT/GestureRecognitionToolkit)
 	-https://developer.leapmotion.com/documentation/v2/cpp/index.html[here](https://developer.leapmotion.com/documentation/v2/cpp/index.html)
 
-================================================================================================
 # Source Code & Training Dataset
-================================================================================================
+
 Source code files in ../src/rsl/src folder:
 
 	-binary_motor_handNode.cpp: the Ada robotic hand part ROS node
@@ -49,9 +46,8 @@ Training dataset files in ../src/rsl/data folder:
 	-TrainingData_static_10numbers.grt: the training dataset of the 10 static digits based on ASL
 	-testData_static_10numbers.grt: the test dataset of the 10 static digits
 
-================================================================================================
 # Build & Usage
-================================================================================================
+
 Connect Leap Motion through USB
 
 	$sudo leapd
