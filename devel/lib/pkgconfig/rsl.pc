@@ -1,0 +1,8 @@
+prefix=/home/dzhi/catkin_ws/devel
+
+Name: rsl
+Description: Description of rsl
+Version: 0.0.0
+Cflags: -I/home/dzhi/catkin_ws/devel/include
+Libs: -L/home/dzhi/catkin_ws/devel/lib 
+Requires: 

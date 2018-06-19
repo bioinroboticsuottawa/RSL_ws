@@ -1,0 +1,91 @@
+The robot hand catkin workspace
+====================================================
+
+================================================================================================
+# Descriptions
+================================================================================================
+package 'rsl' -- Robotic Sign Language (rsl) recognition system using Leap Motion Controller
+This project is the software part of the CIVEMSA 2018 paper "Teaching a Robot Sign Language 
+using Vision-Based Hand Gesture Recognition", D. Zhi, T. E.A. Oliveira, V. P. Fonseca, E. Petriu
+
+This project was developed under ROS framework and Gesture Recognition Toolkits (GRT) library 
+on Linux Ubuntu 14.04 LTE.
+
+================================================================================================
+# Installation
+================================================================================================
+Libraries:
+	-ROS -- indigo
+	-GRT
+	-Leap Motion SDK -- version 2.3.1
+
+For more details of the installation of ROS, leapSDK, and GRT library, please refer to:
+	-http://wiki.ros.org/turtlebot/Tutorials[here](http://wiki.ros.org/turtlebot/Tutorials)
+	-http://www.nickgillian.com/wiki/pmwiki.php/GRT/GestureRecognitionToolkit[here](http://www.nickgillian.com/wiki/pmwiki.php/GRT/GestureRecognitionToolkit)
+	-https://developer.leapmotion.com/documentation/v2/cpp/index.html[here](https://developer.leapmotion.com/documentation/v2/cpp/index.html)
+
+================================================================================================
+# Source Code & Training Dataset
+================================================================================================
+Source code files in ../src/rsl/src folder:
+
+	-binary_motor_handNode.cpp: the Ada robotic hand part ROS node
+	-wrist_node.cpp: the wrist motor part ROS node
+	-leapmotion_tf_broadcaster.cpp: the tf broadcaster ROS node of the leap motion controller
+	-leapmotion_tf_listener.cpp: the tf listener ROS node of the leap motion controller
+	-LeapSDK_tfbroadcaster.cpp: the new tf braodcaster ROS node of the leap motion controller 
+	 using the LeapSDK integrated into the script.
+	-SVMExample.cpp: the classification module ROS node using the SVM classifier
+	-DTWExample.cpp: the classification module ROS node using the DTW classifier
+	-KNNExample.cpp: the classification module ROS node using the KNN classifier
+
+Training dataset files in ../src/rsl/data folder:
+	
+	-DTWTrainingData_10_gestures.grt: the 10 dynamic hand gestures training dataset
+	-DTWTrainingData_new.grt: The modified 10 dynamic hand gestures training dataset 
+	 					      (more clean and can be used as test dataset)
+	-TrainingData_static_10numbers.grt: the training dataset of the 10 static digits based on ASL
+	-testData_static_10numbers.grt: the test dataset of the 10 static digits
+
+================================================================================================
+# Build & Usage
+================================================================================================
+Connect Leap Motion through USB
+
+	$sudo leapd
+	$LeapControlPanel (Optional: Sometimes the leap motion connection will lose even the terminal
+                       says "is connected", open the leap control panel to make sure the device 
+					   connection is ture.)
+
+	With the Leap Motion enabled:
+	right click its icon > Resume tracking > Diagnostic Visualizer
+	If it's not calibrated yet, go to 'Recalibrate Device' > Recalibrate and Apply
+
+Build
+
+	$ cd [workspace]
+	$ catkin_make
+
+Connect the hand and wrist to the PC through USB
+
+Use
+
+	$ roscore
+	$ rosrun rsl binary_motor_handNode (Enable the hand ROS node)
+	$ rosrun rsl wrist_node (Enable the wrist ROS node)
+	
+	$ rosrun rosserial_server serial_node _port:=/ttyACM0 (Allocate a serial port for hand node)
+	$ rosrun rosserial_server serial_node _port:=/ttyACM1 __name:=wrist_node(Allocate another serial port for wrist node)
+
+	$ rosrun rsl SVMExample (start the static hand postures recognition)
+	(optional) $ rosrun rsl DTWExample (start the dynamic hand gestures recognition)
+
+
+
+To reset calibration: 
+
+	$rosrun leapmotion reset_leapmotion_calibration_client
+	
+
+
+
